@@ -11,7 +11,8 @@ This role requires the following variables.
     - Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
 
 Optional Variables
-  - requires_satellite (Default: False) # When setting this variable to True, the variables below become mandatory
+  - requires_satellite **(Default: False)**
+    - When setting this variable to True, the variables below become mandatory
   - satellite_user
   - satellite_password
   - satellite_server
