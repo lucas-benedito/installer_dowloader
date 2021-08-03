@@ -1,0 +1,45 @@
+---
+- name: "Creating product in Satellite"
+  redhat.satellite.product:
+    username: "{{ satellite_user }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_server }}"
+    validate_certs: False
+    name: "{{ satellite_product }}"
+    organization: "{{ satellite_organization }}"
+    state: present
+
+- name: "Creating repository"
+  redhat.satellite.repository:
+    username: "{{ satellite_user }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_server }}"
+    validate_certs: False
+    name: "{{ satellite_repository }}"
+    content_type: file
+    product: "{{ satellite_product }}"
+    organization: "{{ satellite_organization }}"
+    state: present
+
+- name: "Uploading online installer to Satellite"
+  redhat.satellite.content_upload:
+    username: "{{ satellite_user }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_server }}"
+    validate_certs: False
+    src: "ansible-automation-platform-latest-installer.tar.gz"
+    repository: "{{ satellite_repository }}"
+    product: "{{ satellite_product }}"
+    organization: "{{ satellite_organization }}"
+
+- name: "Uploading bundled installer to Satellite ( This task may take a while )"
+  redhat.satellite.content_upload:
+    username: "{{ satellite_user }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_server }}"
+    validate_certs: False
+    src: "ansible-automation-platform-latest-bundle-installer.tar.gz"
+    repository: "{{ satellite_repository }}"
+    product: "{{ satellite_product }}"
+    organization: "{{ satellite_organization }}"
+

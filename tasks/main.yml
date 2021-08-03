@@ -1,0 +1,4 @@
+---
+- include_tasks: api_downloader.yml
+- include_tasks: satellite_upload.yml
+  when: requires_satellite
