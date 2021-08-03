@@ -21,6 +21,18 @@
     organization: "{{ satellite_organization }}"
     state: present
 
+- name: "Create or update Fedora content view"
+  redhat.satellite.content_view:
+    username: "{{ satellite_user }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_server }}"
+    validate_certs: False
+    name: "{{ satellite_content_view_name }}"
+    organization: "{{ satellite_organization }}"
+    repositories:
+      - name: "{{ satellite_repository }}"
+        product: "{{ satellite_product }}"
+
 - name: "Uploading online installer to Satellite"
   redhat.satellite.content_upload:
     username: "{{ satellite_user }}"
@@ -42,4 +54,3 @@
     repository: "{{ satellite_repository }}"
     product: "{{ satellite_product }}"
     organization: "{{ satellite_organization }}"
-

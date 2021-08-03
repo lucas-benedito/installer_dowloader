@@ -18,6 +18,7 @@ Optional Variables
   - satellite_organization
   - satellite_repository
   - satellite_product
+  - satellite_content_view_name
 
 You may find and vars file example at installer_dowloader/templates/vars.yml.j2
 
