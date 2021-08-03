@@ -21,7 +21,7 @@
     organization: "{{ satellite_organization }}"
     state: present
 
-- name: "Create or update Fedora content view"
+- name: "Creating content view"
   redhat.satellite.content_view:
     username: "{{ satellite_user }}"
     password: "{{ satellite_password }}"
