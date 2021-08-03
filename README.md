@@ -7,8 +7,8 @@ Role Variables
 --------------
 
 This role requires the following variables.
-offline_token
-  - Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
+  - offline_token
+    - Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
 
 Optional Variables
   - requires_satellite (Default: False) # When setting this variable to True, the variables below become mandatory
