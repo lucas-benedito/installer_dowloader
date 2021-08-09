@@ -3,6 +3,8 @@ installer_downloader
 
 This role will help to download the AAP installer as well as uploading it to Satellite.
 
+**Note: This role requires the collection [redhat.satellite ](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite)**
+
 Role Variables
 --------------
 
