@@ -20,6 +20,7 @@ Optional Variables
   - satellite_user
   - satellite_password
   - satellite_server
+  - satellite_validate_certs **(Default: False)**
   - satellite_organization
   - satellite_repository
   - satellite_product

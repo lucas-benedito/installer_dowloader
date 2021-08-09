@@ -4,7 +4,7 @@
     username: "{{ satellite_user }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_server }}"
-    validate_certs: False
+    validate_certs: "{{ satellite_validate_certs | default('False') }}"
     name: "{{ satellite_product }}"
     organization: "{{ satellite_organization }}"
     state: present
@@ -14,7 +14,7 @@
     username: "{{ satellite_user }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_server }}"
-    validate_certs: False
+    validate_certs: "{{ satellite_validate_certs | default('False') }}"
     name: "{{ satellite_repository }}"
     content_type: file
     product: "{{ satellite_product }}"
@@ -26,7 +26,7 @@
     username: "{{ satellite_user }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_server }}"
-    validate_certs: False
+    validate_certs: "{{ satellite_validate_certs | default('False') }}"
     name: "{{ satellite_content_view_name }}"
     organization: "{{ satellite_organization }}"
     repositories:
@@ -38,7 +38,7 @@
     username: "{{ satellite_user }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_server }}"
-    validate_certs: False
+    validate_certs: "{{ satellite_validate_certs | default('False') }}"
     src: "ansible-automation-platform-latest-installer.tar.gz"
     repository: "{{ satellite_repository }}"
     product: "{{ satellite_product }}"
@@ -49,7 +49,7 @@
     username: "{{ satellite_user }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_server }}"
-    validate_certs: False
+    validate_certs: "{{ satellite_validate_certs | default('False') }}"
     src: "ansible-automation-platform-latest-bundle-installer.tar.gz"
     repository: "{{ satellite_repository }}"
     product: "{{ satellite_product }}"
