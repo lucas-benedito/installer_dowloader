@@ -2,7 +2,7 @@ galaxy_info:
   role_name: installer_downloader
   namespace: lucas_benedito
   author: Lucas Benedito
-  description: This role will help to download the AAP installer as well as uploading it to Satellite.
+  description: This role will help to download the AAP installer as well as uploading it to Satellite ( if desired ).
   company: Red Hat
 
   license: license (BSD, MIT)
