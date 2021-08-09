@@ -7,11 +7,12 @@ Role Variables
 --------------
 
 This role requires the following variables.
-offline_token
-  - Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
+  - offline_token
+    - Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
 
 Optional Variables
-  - requires_satellite (Default: False) # When setting this variable to True, the variables below become mandatory
+  - requires_satellite **(Default: False)**
+    - When setting this variable to True, the variables below become mandatory
   - satellite_user
   - satellite_password
   - satellite_server
@@ -20,7 +21,7 @@ Optional Variables
   - satellite_product
   - satellite_content_view_name
 
-You may find and vars file example at installer_dowloader/templates/vars.yml.j2
+You may find and vars file example at [installer_dowloader/templates/vars.yml.j2](https://github.com/lucas-benedito/installer_dowloader/blob/master/templates/vars.yml.j2).
 
 Example Playbook
 ----------------
