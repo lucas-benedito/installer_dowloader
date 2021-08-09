@@ -7,7 +7,6 @@ This role will help to download the AAP installer as well as uploading it to Sat
 
 Role Variables
 --------------
-
 This role requires the following variables.
   - offline_token
     - Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
@@ -27,7 +26,6 @@ You may find and vars file example at [installer_dowloader/templates/vars.yml.j2
 
 Example Playbook
 ----------------
-
 ~~~
 ---
 - name: Downloader for AAP installers
@@ -35,15 +33,13 @@ Example Playbook
   vars_files:
     - vars.yml
   roles:
-    - installer_dowloader
+    - { role: lucas_benedito.installer_downloader }
 ~~~
 
 License
 -------
-
-BSD
+MIT / BSD
 
 Author Information
 ------------------
-
 Lucas Benedito (lbenedit@redhat.com)
