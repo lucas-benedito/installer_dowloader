@@ -1,11 +1,18 @@
 galaxy_info:
+  role_name: installer_downloader
+  namespace: lucas_benedito
   author: Lucas Benedito
   description: This role will help to download the AAP installer as well as uploading it to Satellite.
   company: Red Hat
 
-  license: license (GPL-2.0-or-later, MIT, etc)
+  license: license (BSD, MIT)
 
   min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
 
   galaxy_tags: []
     # List tags for your role here, one per line. A tag is a keyword that describes
