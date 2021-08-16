@@ -1,0 +1,4 @@
+---
+aap_version: "ansible-automation-platform-2.0-early-access-for-rhel-8-x86_64-files"
+requires_satellite: False
+
