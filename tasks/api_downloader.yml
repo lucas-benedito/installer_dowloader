@@ -27,16 +27,20 @@
         Authorization: "Bearer {{ login.json.access_token }}"
     register: output
 
-  - name: Downloading the latest online installer 
+  - name: reversing downloader list
+    set_fact:
+      downloader_list: "{{ output.json.body | sort(attribute='imageName', reverse=True) }}"
+
+  - name: Downloading the latest online installer "{{ downloader_list[1].imageName }}"
     get_url:
-      url: "https://api.access.redhat.com/management/v1/images/{{ output.json.body[0].checksum }}/download"
+      url: "https://api.access.redhat.com/management/v1/images/{{ downloader_list[1].checksum }}/download"
       dest: ./ansible-automation-platform-latest-installer.tar.gz
       headers:
         Authorization: "Bearer {{ login.json.access_token }}"
 
-  - name: Downloading the latest bundled installer 
+  - name: Downloading the latest bundled installer "{{ downloader_list[0].imageName }}"
     get_url:
-      url: "https://api.access.redhat.com/management/v1/images/{{ output.json.body[1].checksum }}/download"
+      url: "https://api.access.redhat.com/management/v1/images/{{ downloader_list[0].checksum }}/download"
       dest: ./ansible-automation-platform-latest-bundle-installer.tar.gz
       headers:
         Authorization: "Bearer {{ login.json.access_token }}"
