@@ -33,7 +33,7 @@
   file:
     path: "{{ lookup('env','PWD') }}/data"
     state: directory
-    mode: 0644
+    mode: 0755
 - name: reversing downloader list
   set_fact:
     downloader_list: "{{ output.json.body | sort(attribute='imageName', reverse=True) }}"
