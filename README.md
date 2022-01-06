@@ -55,7 +55,7 @@ AAP 2.1
 aap_version: ansible-automation-platform-2.1-for-rhel-8-x86_64-files
 ~~~
 
-To find the repo name, you may verfy it with the following command as registered system:
+To find the repo name, you may verfy it with the following command in a registered system:
 ~~~
 subscription-manager repos |grep ansible-automation-platform
 ~~~
