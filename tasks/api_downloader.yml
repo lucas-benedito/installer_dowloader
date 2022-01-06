@@ -1,3 +1,4 @@
+
 ---
   - name: Checking For necessary variables
     fail:
@@ -27,6 +28,16 @@
         Authorization: "Bearer {{ login.json.access_token }}"
     register: output
 
+  - name: Delete existent installer files
+    file:
+      path: "{{ lookup('env','PWD') }}/data"
+      state: absent
+  
+  - name: Create installer directory
+    file:
+      path: "{{ lookup('env','PWD') }}/data"
+      state: directory
+
   - name: reversing downloader list
     set_fact:
       downloader_list: "{{ output.json.body | sort(attribute='imageName', reverse=True) }}"
@@ -34,13 +45,25 @@
   - name: Downloading the latest online installer "{{ downloader_list[1].imageName }}"
     get_url:
       url: "https://api.access.redhat.com/management/v1/images/{{ downloader_list[1].checksum }}/download"
-      dest: ./ansible-automation-platform-latest-installer.tar.gz
-      headers:
+      dest: "{{ lookup('env','PWD') }}/data/{{ downloader_list[1].filename }}"
+      headers: 
         Authorization: "Bearer {{ login.json.access_token }}"
-
+  
   - name: Downloading the latest bundled installer "{{ downloader_list[0].imageName }}"
     get_url:
       url: "https://api.access.redhat.com/management/v1/images/{{ downloader_list[0].checksum }}/download"
-      dest: ./ansible-automation-platform-latest-bundle-installer.tar.gz
-      headers:
+      dest: "{{ lookup('env','PWD') }}/data/{{ downloader_list[0].filename }}"
+      headers: 
         Authorization: "Bearer {{ login.json.access_token }}"
+  
+  - name: Creating symlink for the downloaded files (online installer)
+    file:
+      src: "{{ lookup('env','PWD') }}/data/{{ downloader_list[1].filename }}"
+      dest: "{{ lookup('env','PWD') }}/data/ansible-automation-platform-latest-installer.tar.gz"
+      state: link
+   
+  - name: Creating symlink for the downloaded files (bundled installer)
+    file:
+      src: "{{ lookup('env','PWD') }}/data/{{ downloader_list[0].filename }}"
+      dest: "{{ lookup('env','PWD') }}/data/ansible-automation-platform-latest-bundle-installer.tar.gz"
+      state: link
