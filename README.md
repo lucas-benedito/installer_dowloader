@@ -43,6 +43,7 @@ Example Playbook
 Note
 ----------------
 In case you wish to change the downloaded version, set the variable aap_version in vars.yml with the desired repository name.
+
 E.g.:
 AAP 2.0 E.A
 ~~~
