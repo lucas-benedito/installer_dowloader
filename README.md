@@ -26,7 +26,7 @@ Optional Variables
   - satellite_product
   - satellite_content_view_name
 
-You may find and vars file example at [installer_dowloader/templates/vars.yml.j2](https://github.com/lucas-benedito/installer_dowloader/blob/master/templates/vars.yml.j2).
+You can find a vars file example at [installer_dowloader/templates/vars.yml.j2](https://github.com/lucas-benedito/installer_dowloader/blob/master/templates/vars.yml.j2).
 
 Example Playbook
 ----------------
