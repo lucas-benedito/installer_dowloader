@@ -6,7 +6,7 @@ This role will help to download the AAP installer as well as uploading it to Sat
 
 Requirements
 --------------
-[redhat.satellite ](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite)
+[redhat.satellite](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite)
 
 Role Variables
 --------------
@@ -38,6 +38,25 @@ Example Playbook
     - vars.yml
   roles:
     - { role: lucas_benedito.installer_downloader }
+~~~
+
+Note
+----------------
+In case you wish to change the downloaded version, set the variable aap_version in vars.yml with the desired repository name.
+E.g.:
+AAP 2.0 E.A
+~~~
+aap_version: ansible-automation-platform-2.0-early-access-for-rhel-8-x86_64-files
+~~~
+
+AAP 2.1
+~~~
+aap_version: ansible-automation-platform-2.1-for-rhel-8-x86_64-files
+~~~
+
+To find the repo name, you may verfy it with the following command as registered system:
+~~~
+subscription-manager repos |grep ansible-automation-platform
 ~~~
 
 License
