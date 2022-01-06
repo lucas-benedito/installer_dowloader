@@ -14,10 +14,10 @@ galaxy_info:
         - 7
         - 8
 
-  galaxy_tags: 
-    - Installer
-    - AAP
-    - Satellite
+  galaxy_tags:
+    - installer
+    - aap
+    - satellite
 
   dependencies:
     - redhat.satellite
