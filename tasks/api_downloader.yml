@@ -2,9 +2,9 @@
 - name: Checking For necessary variables
   fail:
     msg: |
-         Please, set the variable offline_token prior to executing this playbook
-         ansible-playbook installer_downloader.yml -e "offline_token=xxxxx"
-         Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
+      Please, set the variable offline_token prior to executing this playbook
+      ansible-playbook installer_downloader.yml -e "offline_token=xxxxx"
+      Acquire your token at https://access.redhat.com/management/api/  ( https://access.redhat.com/articles/3626371 )
   when: offline_token is not defined
 - name: Login to Red Hat APIs
   uri:
@@ -21,7 +21,7 @@
   uri:
     url: 'https://api.access.redhat.com/management/v1/images/cset/{{ aap_version }}'
     method: GET
-    return_content: true
+    return_content: yes
     headers:
       Authorization: "Bearer {{ login.json.access_token }}"
   register: output
@@ -29,7 +29,6 @@
   file:
     path: "{{ lookup('env','PWD') }}/data"
     state: absent
-
 - name: Create installer directory
   file:
     path: "{{ lookup('env','PWD') }}/data"
