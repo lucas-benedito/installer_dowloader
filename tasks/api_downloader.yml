@@ -60,3 +60,6 @@
     src: "{{ lookup('env','PWD') }}/data/{{ downloader_list[0].filename }}"
     dest: "{{ lookup('env','PWD') }}/data/ansible-automation-platform-latest-bundle-installer.tar.gz"
     state: link
+- name: Final Remarks
+  debug:
+    msg: "The files were downloaded at {{ lookup('env','PWD') }}/data"

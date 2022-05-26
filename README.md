@@ -2,6 +2,13 @@ installer_downloader
 =========
 
 This role will help to download the AAP installer as well as uploading it to Satellite.
+After Execution, the files will be contained on the directory data.
+E.g.:
+~~~
+$ ls data
+ansible-automation-platform-latest-bundle-installer.tar.gz  ansible-automation-platform-latest-installer.tar.gz  ansible-automation-platform-setup-2.2.0-6.tar.gz  ansible-automation-platform-setup-bundle-2.2.0-6.tar.gz
+$
+~~~
 
 Requirements
 --------------
