@@ -71,6 +71,16 @@ AAP 2.2 - RHEL 9
 aap_version: ansible-automation-platform-2.2-for-rhel-9-x86_64-files
 ~~~
 
+AAP 2.3
+~~~
+aap_version: ansible-automation-platform-2.3-for-rhel-8-x86_64-files
+~~~
+
+AAP 2.3 - RHEL 9
+~~~
+aap_version: ansible-automation-platform-2.3-for-rhel-9-x86_64-files
+~~~
+
 To find the repo name, you may verfy it with the following command in a registered system:
 ~~~
 subscription-manager repos |grep ansible-automation-platform
